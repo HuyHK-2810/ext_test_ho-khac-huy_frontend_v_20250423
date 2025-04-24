@@ -24,7 +24,7 @@ export default function Header() {
             {navItems.map(({ icon, label }) => (
               <button
                 key={label}
-                className="flex items-center space-x-1 text-base font-light leading-[23px] text-hover-gradient"
+                className="flex items-center space-x-1 text-base font-light leading-23 text-hover-gradient"
               >
 
                 <img

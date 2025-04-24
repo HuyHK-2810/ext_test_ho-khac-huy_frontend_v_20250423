@@ -26,6 +26,18 @@ module.exports = {
           'primary-300-400': 'linear-gradient(to right, #FFCC21, #FF963C)', // グラデーション
         },
       },
+      fontSize: {
+        '11': '11px',  // Custom font size of 23px
+      },
+      lineHeight: {
+        '23': '23px',  // Custom line height value
+      },
+      letterSpacing: {
+        '0.03': '0.03px',  // Custom letter spacing of 0.03px
+      },
+       fontFamily: {
+        'hiragino': ['Hiragino Kaku Gothic Pro', 'sans-serif'],
+      },
     },
   },
     plugins: [

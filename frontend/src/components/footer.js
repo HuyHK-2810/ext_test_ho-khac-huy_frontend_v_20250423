@@ -20,7 +20,7 @@ export default function Footer() {
               <a
               key={label+index}
                 href={url}
-                className="flex items-center space-x-1 text-sm font-medium text-hover-gradient"
+                className="flex items-center space-x-1 text-11 font-light leading-4 tracking-0.03 text-hover-gradient"
               >
                 <span>{label}</span>
               </a>

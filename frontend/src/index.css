@@ -6,9 +6,15 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'Hiragino Kaku Gothic Pro';
+  src: url('../public/fonts/HiraginoKakuGothicPro.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
 
 body {
-  font-family: 'Inter', sans-serif; 
+  font-family: 'hiragino', sans-serif; 
 }
 
 .jp-text {
