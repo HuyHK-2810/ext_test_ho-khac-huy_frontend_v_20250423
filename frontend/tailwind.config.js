@@ -27,20 +27,30 @@ module.exports = {
         },
       },
       fontSize: {
-        '11': '11px',  // Custom font size of 23px
+        '11': '11px',
+        '25': '25px',
       },
       lineHeight: {
-        '23': '23px',  // Custom line height value
+        '18': '18px',
+        '22': '22px',
+        '23': '23px',
+        '30': '30px',
       },
       letterSpacing: {
-        '0.03': '0.03px',  // Custom letter spacing of 0.03px
+        '0.03': '0.03px',
+        '0.15': '0.15px',
       },
-       fontFamily: {
+      fontFamily: {
         'hiragino': ['Hiragino Kaku Gothic Pro', 'sans-serif'],
+        inter: ['Inter', 'sans-serif'],
+        noto: ['Noto Sans JP', 'sans-serif'],
+      },
+      backgroundImage: {
+        'gradient-primary-300-400': 'linear-gradient(to right, #FFCC21, #FF963C)',
       },
     },
   },
-    plugins: [
+  plugins: [
 
   ],
 }
