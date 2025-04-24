@@ -24,3 +24,23 @@ body {
 .text-hover-gradient {
   @apply text-white hover:text-transparent bg-clip-text bg-gradient-to-r from-primary-300 to-primary-400 hover:bg-gradient-to-r hover:from-primary-300 hover:to-primary-400 transition-colors duration-300;
 }
+
+.scrollable-container {
+  overflow: auto;
+  scrollbar-width: thin; 
+  scrollbar-color: #FFCC21 #777777; 
+}
+
+.scrollable-container::-webkit-scrollbar {
+  width: 6px; 
+}
+
+.scrollable-container::-webkit-scrollbar-thumb {
+  background-color: #FFCC21; 
+  border-radius: 3px;
+}
+
+.scrollable-container::-webkit-scrollbar-track {
+  background-color: #777777; 
+  border-radius: 3px;
+}

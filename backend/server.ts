@@ -6,7 +6,7 @@ import achievementRoutes from './routes/achievementRoutes';
 import columnRoutes from './routes/columnRoutes';
 import bodyRecordRoutes from './routes/bodyRecordRoutes';
 import diaryRoutes from './routes/diaryRoutes';
-
+import exerciseRoutes from './routes/exerciseRoutes';
 const app = express();
 const PORT = 5000;
 
@@ -21,6 +21,7 @@ app.use(achievementRoutes);
 app.use(columnRoutes);
 app.use(bodyRecordRoutes);
 app.use(diaryRoutes);
+app.use(exerciseRoutes);
 
 app.post('/api/login', (req: Request, res: any) => {
   const { username, password } = req.body;

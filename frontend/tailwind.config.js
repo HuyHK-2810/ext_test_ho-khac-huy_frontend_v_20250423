@@ -27,6 +27,7 @@ module.exports = {
         },
       },
       fontSize: {
+         '5': '5px',
         '10': '10px',
         '11': '11px',
         '15': '15px',
@@ -35,6 +36,7 @@ module.exports = {
         '25': '25px',
       },
       lineHeight: {
+         '7': '7px',
          '13': '13px',
         '18': '18px',
         '22': '22px',
