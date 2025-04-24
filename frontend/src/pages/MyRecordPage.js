@@ -2,15 +2,21 @@ import React from 'react';
 import { Link } from 'react-scroll';
 import RecordButton from '../components/RecordButton';
 import BodyRecord from '../components/BodyRecord';
+import MyExercise from '../components/MyExercise';
+import MyDiary from '../components/MyDiary';
 
 
 const MyRecordPage = () => {
   return (
     <div className="relative flex h-full flex-1 flex-col justify-start pt-14 pb-16 gap-6 lg:gap-14 px-4 md:px-20 lg:px-40">
       <RecordButton />
-      <div className="w-full md:col-span-7 bg-dark-600 h-[304px]">
+      <div className="w-full bg-dark-600 h-[304px]">
         <BodyRecord />
       </div>
+      <div className="w-full bg-dark-600 h-[264px]">
+        <MyExercise />
+      </div>
+      <MyDiary/>
       <Link
         to="top"
         smooth={true} duration={500}

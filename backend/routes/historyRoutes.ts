@@ -1,21 +1,8 @@
 import { Router } from 'express';
+import { history } from '../data/mockData';
 
 const router = Router();
 
-const history = [
-  { text: "05.21.Morning", imageUrl: "/static/img/m01.jpg", type: "Morning" },
-  { text: "05.21.Lunch", imageUrl: "/static/img/l03.jpg", type: "Lunch" },
-  { text: "05.21.Dinner", imageUrl: "/static/img/d01.jpg", type: "Dinner" },
-  { text: "05.21.Snack", imageUrl: "/static/img/l01.jpg", type: "Snack" },
-  { text: "05.20 Morning", imageUrl: "/static/img/m01.jpg", type: "Morning" },
-  { text: "05.20 Lunch", imageUrl: "/static/img/l02.jpg", type: "Lunch" },
-  { text: "05.20.Dinner", imageUrl: "/static/img/d02.jpg", type: "Dinner" },
-  { text: "05.20.Snack", imageUrl: "/static/img/s01.jpg", type: "Snack" },
-  { text: "05.19.Morning", imageUrl: "/static/img/m02.jpg", type: "Morning" },
-  { text: "05.19.Lunch", imageUrl: "/static/img/l03.jpg", type: "Lunch" },
-  { text: "05.19.Dinner", imageUrl: "/static/img/d01.jpg", type: "Dinner" },
-  { text: "05.19.Snack", imageUrl: "/static/img/s01.jpg", type: "Snack" },
-];
 
 // Định nghĩa route
 router.get('/api/history', (req: any, res: any) => {

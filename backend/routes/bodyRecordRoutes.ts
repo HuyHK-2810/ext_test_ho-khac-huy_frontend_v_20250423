@@ -1,5 +1,5 @@
 import { Router, Request, Response } from "express";
-import { labels, datasets } from "../data/bodyRecordMockData";
+import { datasets, labels } from "../data/mockData";
 
 const router = Router();
 

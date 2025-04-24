@@ -12,7 +12,7 @@ import {
   Legend,
 } from "chart.js";
 import { Element } from 'react-scroll';
-import { cn } from "../lib/utils";
+import { cn, formatDate } from "../lib/utils";
 import { useGetFilterBodyRecord } from "../hooks/useBodyRecordData";
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
@@ -82,14 +82,6 @@ const BodyRecord = () => {
   const handleFilterChange = (value) => {
     setFilterValue(value);
     loadNewFilter(value);
-  };
-
-  const formatDate = (date) => {
-    const d = new Date(date);
-    const year = d.getFullYear();
-    const month = String(d.getMonth() + 1).padStart(2, '0');
-    const day = String(d.getDate()).padStart(2, '0');
-    return `${year}.${month}.${day}`;
   };
 
   return (
