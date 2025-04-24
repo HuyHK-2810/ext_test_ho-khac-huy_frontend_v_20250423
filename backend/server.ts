@@ -22,7 +22,7 @@ app.use(achievementRoutes);
 app.use(columnRoutes);
 
 // Route để đăng nhập (API giả lập)
-app.post('/api/login', (req: any, res: any) => {
+app.post('/api/login', (req: Request, res: any) => {
   const { username, password } = req.body;
   const { mockUser } = require('./data/mockData');
 
