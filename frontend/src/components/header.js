@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link ,Element} from 'react-scroll';
 
 const navItems = [
   { icon: "/static/svg/icon/icon_memo.svg", label: '自分の記録' },
@@ -9,7 +10,7 @@ const navItems = [
 export default function Header() {
   return (
     <header className="bg-dark-500 text-light">
-      <div className="mx-auto px-4 sm:px-6 lg:px-40">
+      <Element name="top" className="mx-auto px-4 sm:px-6 lg:px-40">
         <div className="flex items-center justify-between h-16">
           <a href="/" className="flex-shrink-0 flex items-center">
             <img
@@ -49,7 +50,7 @@ export default function Header() {
             </div>
           </nav>
         </div>
-      </div>
+      </Element>
     </header>
   );
 }
