@@ -4,6 +4,8 @@ import productRoutes from './routes/productRoutes';
 import historyRoutes from './routes/historyRoutes';
 import chartRoutes from './routes/chartRoutes';
 import achievementRoutes from './routes/achievementRoutes';
+import columnRoutes from './routes/columnRoutes';
+
 
 const app = express();
 const PORT = 5000;
@@ -17,6 +19,7 @@ app.use(productRoutes);
 app.use(historyRoutes);
 app.use(chartRoutes);
 app.use(achievementRoutes);
+app.use(columnRoutes);
 
 // Route để đăng nhập (API giả lập)
 app.post('/api/login', (req: any, res: any) => {

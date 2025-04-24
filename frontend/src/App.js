@@ -5,16 +5,17 @@ import './index.css';
 
 
 import LoginPage from './pages/LoginPage';
-import MyPage from './pages/myPage/MyPage';
+import MyPage from './pages/MyPage';
+import ColumnPage from './pages/ColumnPage';
 
 
 export default function App() {
   return (
     <Router>
       <Routes>
-      <Route path="/" element={<MyPage />} />
+      <Route path="/" element={<LoginPage />} />
         <Route path="/myPage" element={<MyPage />} />
-        <Route path="/login" element={<LoginPage />} />
+        <Route path="/column" element={<ColumnPage />} />
       </Routes>
     </Router>
   );

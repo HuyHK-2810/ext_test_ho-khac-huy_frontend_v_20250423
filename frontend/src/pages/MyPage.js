@@ -1,12 +1,10 @@
 import React from 'react';
-import ProgressImageCard from '../../components/ProgressImageCard';
-import LineChart from '../../components/LineChart';
+import ProgressImageCard from '../components/ProgressImageCard';
+import LineChart from '../components/LineChart';
 import { Link} from 'react-scroll';
-import MealHistory from '../../components/MealHistory';
-
+import MealHistory from '../components/MealHistory';
 
 const MyPage = () => {
-
 
   return (
     <div className="relative flex h-full flex-1 flex-col justify-start pb-16 gap-6">
