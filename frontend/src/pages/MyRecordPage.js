@@ -6,11 +6,11 @@ import BodyRecord from '../components/BodyRecord';
 
 const MyRecordPage = () => {
   return (
-    <div className="relative flex h-full flex-1 flex-col justify-start pt-14 pb-16 gap-6 px-4 md:px-20 lg:px-40">
+    <div className="relative flex h-full flex-1 flex-col justify-start pt-14 pb-16 gap-6 lg:gap-14 px-4 md:px-20 lg:px-40">
       <RecordButton />
-        <div className="w-full md:col-span-7 bg-dark-600 h-[304px]">
-          <BodyRecord />
-        </div>
+      <div className="w-full md:col-span-7 bg-dark-600 h-[304px]">
+        <BodyRecord />
+      </div>
       <Link
         to="top"
         smooth={true} duration={500}

@@ -1,11 +1,10 @@
 import express, { Request, Response } from 'express';
 import cors from 'cors';
-import productRoutes from './routes/productRoutes';
 import historyRoutes from './routes/historyRoutes';
 import chartRoutes from './routes/chartRoutes';
 import achievementRoutes from './routes/achievementRoutes';
 import columnRoutes from './routes/columnRoutes';
-
+import bodyRecordRoutes from './routes/bodyRecordRoutes';
 
 const app = express();
 const PORT = 5000;
@@ -15,11 +14,11 @@ app.use(cors());
 app.use(express.json());
 
 // Routes
-app.use(productRoutes);
 app.use(historyRoutes);
 app.use(chartRoutes);
 app.use(achievementRoutes);
 app.use(columnRoutes);
+app.use(bodyRecordRoutes);
 
 // Route để đăng nhập (API giả lập)
 app.post('/api/login', (req: Request, res: any) => {

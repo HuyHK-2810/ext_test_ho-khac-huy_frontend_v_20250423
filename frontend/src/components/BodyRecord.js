@@ -11,14 +11,16 @@ import {
   Tooltip,
   Legend,
 } from "chart.js";
-import { useChartData } from "../hooks/useChartData";
+import { Element } from 'react-scroll';
+import { cn } from "../lib/utils";
+import { useGetFilterBodyRecord } from "../hooks/useBodyRecordData";
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
 const BodyRecord = () => {
-  const { data, isLoading, isError } = useChartData();
-  const [filterValue, setFilterValue] = useState("");  // Bộ lọc giá trị
-  
+  const { data, isLoading, isError, loadNewFilter } = useGetFilterBodyRecord();
+  const [filterValue, setFilterValue] = useState("day");
+
   if (isLoading) return <div className="text-white text-center">Loading chart data...</div>;
   if (isError) return <div className="text-red-500 text-center">Failed to load data</div>;
 
@@ -42,9 +44,9 @@ const BodyRecord = () => {
           display: true,
           color: '#FFF',
           font: {
-            size: 8,
-            weight: '300',
-            lineHeight: '12px',
+            size: 12,
+            weight: '400',
+            lineHeight: '15px',
           },
         },
       },
@@ -60,68 +62,76 @@ const BodyRecord = () => {
     },
     plugins: {
       legend: {
-        display: true
+        display: false
       },
       datalabels: {
         display: false,
       },
-      title: {
-        display: true,
-        text: 'Chart Title', // Tên biểu đồ
-        position: 'top',     // Đặt tên biểu đồ ở góc trên
-        align: 'end',        // Căn phải
-        font: {
-          size: 16,
-          weight: 'bold',
-          color: '#FFF',
-        },
-        padding: {
-          top: 10,
-          right: 20,
-        }
-      }
+
     },
     layout: {
       padding: {
-        left: 53,
-        right: 98,
-        top: 12,
-        bottom: 18
+        left: 51,
+        right: 50,
+        top: 54,
+        bottom: 49
       }
     },
   };
 
-  const handleFilterChange = (e) => {
-    setFilterValue(e.target.value);
-    // Cập nhật chartData hoặc các giá trị liên quan đến filter ở đây
-    // Ví dụ: filter lại dữ liệu của biểu đồ
+  const handleFilterChange = (value) => {
+    setFilterValue(value);
+    loadNewFilter(value);
+  };
+
+  const formatDate = (date) => {
+    const d = new Date(date);
+    const year = d.getFullYear();
+    const month = String(d.getMonth() + 1).padStart(2, '0');
+    const day = String(d.getDate()).padStart(2, '0');
+    return `${year}.${month}.${day}`;
   };
 
   return (
-    <div className="relative w-full md:col-span-7 bg-dark-600 h-[304px]">
+    <Element name="record" className="relative w-full md:col-span-7 bg-dark-600 h-[304px]">
       <Line data={chartData} options={options} plugins={[ChartDataLabels]} />
-      
-      {/* Hiển thị ngày kế bên tên biểu đồ */}
-      <div className="absolute top-0 right-0 text-white p-2">
-        <p>{new Date().toLocaleDateString()}</p> {/* Hiển thị ngày hiện tại */}
-      </div>
 
-      {/* Bộ lọc ở dưới */}
-      <div className="mt-4 p-4">
-        <label className="text-white mr-2">Filter:</label>
-        <select
-          className="p-2 bg-gray-700 text-white rounded"
-          value={filterValue}
-          onChange={handleFilterChange}
-        >
-          <option value="">Select Filter</option>
-          <option value="option1">Filter Option 1</option>
-          <option value="option2">Filter Option 2</option>
-          <option value="option3">Filter Option 3</option>
-        </select>
+      <div className="absolute top-4 left-6 text-white p-2 font-inter font-normal text-15 leading-18 tracking-0.15 w-24 text-wrap">
+        <p>BODY RECORD</p>
       </div>
-    </div>
+      <div className="absolute top-4 left-[120px] text-white p-2">
+        <p>{formatDate(new Date())}</p>
+      </div>
+      <div className="absolute bottom-4 left-8 font-hiragino flex gap-4 justify-center items-center">
+        {filterOption.map((option) => (<button
+          key={option.value}
+          className={cn(`py-2 px-10 rounded-[11px] h-6 text-15 leading-22 font-light tracking-0.08 flex justify-center items-center`, {
+            "bg-primary-300 text-white hover:bg-white hover:text-primary-300": filterValue === option.value,
+            "bg-white text-primary-300 hover:bg-primary-300 hover:text-white": filterValue !== option.value,
+          })}
+          onClick={() => handleFilterChange(option.value)}
+        >
+          {option.label}
+        </button>))}
+      </div>
+    </Element>
   );
 };
 
+const filterOption = [{
+  value: "day",
+  label: "日"
+},
+{
+  value: "week",
+  label: "週"
+},
+{
+  value: "moonth",
+  label: "月"
+},
+{
+  value: "year",
+  label: "年"
+}]
 export default BodyRecord;
